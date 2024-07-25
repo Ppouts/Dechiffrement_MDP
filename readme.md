@@ -4,7 +4,7 @@ Cette application Flask permet de tenter de découvrir les mots de passe de fich
 
 ## Prérequis
 
-- Python 3.x
+- Python 3.12
 - Flask
 - pyzipper
 - pikepdf
