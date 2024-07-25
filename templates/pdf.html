@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gendarmerie Nationale</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Page.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Dechiffrement MDP</h1>
+        <form action="/">
+            <button type="submit">Menu</button>
+        </form>
+    </header>
+
+    <div id="zoneDepot" class="zone-depot">Déposez ici</div>
+    <p id="status"></p>
+
+    <div class="container">
+        <form id="form-bruteforce" action="/pdf.html" method="POST" enctype="multipart/form-data">
+            <input type="file" name="pdf_file" id="fileInput"><br><br>
+            <button type="submit">Lancer le bruteforce</button>
+        </form>
+        {% if mot_de_passe %}
+        <div id="result-container">
+            <h3>Résultat du Bruteforce</h3>
+            <p>Mot de passe trouvé : {{ mot_de_passe }}</p>
+        </div>
+        {% endif %}   
+        {% if encryption_type %}
+            <p>Type de chiffrement : {{ encryption_type }}</p>
+        {% endif %}     
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <footer>
+        <p>&copy; 2024 Dechiffrement MDP</p>
+    </footer>
+</body>
+</html>
+ 
